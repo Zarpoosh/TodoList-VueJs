@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="updateProject">
     <label typeof="text">Title :</label>
     <input v-model="title" type="text" required />
     <label>Details :</label>
@@ -24,11 +24,29 @@ export default {
       .then((data) => {
         // console.log(data)
         this.title = data.title
-        this.details = data.details
+        this.details = data.detail
       })
       .catch((err) => console.log(err.message))
+  },
+  methods:{
+    updateProject(){
+      let project={
+        title:this.title,
+        detail: this.details,
+      }
+      fetch(this.url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(project)
+      })
+        .then(() => {
+          this.$router.push('/')
+        })
+        .catch((err) => console.log(err.message))
+    }
+    }
   }
-}
+
 </script>
 
 <style></style>

@@ -1,20 +1,24 @@
 <template>
+  <FilterNavVue @filterChange="current = $event" :current="current" />
   <div class="home">
     <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id">
+      <div v-for="project in filteredProjects" :key="project.id">
         <SingleProject :project="project" @delete="handleDelete" @complete="handleComplete" />
       </div>
     </div>
   </div>
+  <p class="minoo">minoo zarpoosh :)) => <a href="https://github.com/Zarpoosh/TodoList-VueJs">source of code</a></p>
 </template>
 <script>
 import SingleProject from '@/components/SingleProject.vue'
+import FilterNavVue from '@/components/FilterNav.vue'
 export default {
   name: 'Home',
-  components: { SingleProject },
+  components: { SingleProject, FilterNavVue },
   data() {
     return {
-      projects: []
+      projects: [],
+      current: 'all'
     }
   },
   mounted() {
@@ -35,6 +39,37 @@ export default {
       })
       p.complete = !p.complete
     }
+  },
+  computed: {
+    filteredProjects() {
+      if (this.current === 'completed') {
+        return this.projects.filter((item) => item.complete)
+      } else if (this.current === 'ongoing') {
+        return this.projects.filter((item) => !item.complete)
+      } else {
+        return this.projects
+      }
+    }
   }
 }
 </script>
+
+<style>
+.filter-nav button {
+  background: none;
+  border: none;
+  color: #bbb;
+  outline: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.minoo{
+  color:#797979;
+  text-align: center;
+  text-transform: uppercase;
+}
+</style>

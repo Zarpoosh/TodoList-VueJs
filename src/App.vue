@@ -1,7 +1,6 @@
 <template>
   <NavbarVue/>
-  <!-- <Home /> -->
-  <RouterView />
+<RouterView />
 </template>
 
 <script>
