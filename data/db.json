@@ -10,7 +10,7 @@
       "title": "todo 2 ",
       "detail": "todo 2",
       "id": "2",
-      "complete": true
+      "complete": false
     },
     {
       "title": "todo 3 ",
