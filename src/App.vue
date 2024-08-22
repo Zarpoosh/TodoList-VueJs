@@ -1,18 +1,19 @@
-
 <template>
-  <Home/>
-  <!-- <RouterView /> -->
+  <NavbarVue/>
+  <!-- <Home /> -->
+  <RouterView />
 </template>
 
-  <script >
-  // import {RouterLink ,RouterView } from 'vue-router'
-import Home from './views/HomeView.vue'
-export default{
-  components: {Home},
+<script>
+import { RouterView } from 'vue-router'
+// import Home from './views/Home.vue'
+import NavbarVue from './components/Navbar.vue'
+export default {
+  components: { NavbarVue  }
 }
-  </script>
+</script>
 <style scoped>
-body{
+body {
   background: #f2f2f2;
 }
 </style>

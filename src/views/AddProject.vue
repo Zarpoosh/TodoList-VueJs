@@ -17,7 +17,23 @@ export default {
         details: ''
       }
     },
-    handleSubmit() {}
+    handleSubmit() {
+      // console.log(this.title, this.details)
+      let project = {
+        title: this.title,
+        details: this.details,
+        complete: this.complete
+      }
+      fetch('http://localhost:3000/todos', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(project)
+      })
+        .then(() => {
+          this.$router.push('/')
+        })
+        .catch((err) => console.log(err.message))
+    }
   }
 }
 </script>

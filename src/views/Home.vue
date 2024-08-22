@@ -10,7 +10,7 @@
 <script>
 import SingleProject from '@/components/SingleProject.vue'
 export default {
-  // name: 'Home',
+  name: 'Home',
   components: { SingleProject },
   data() {
     return {
