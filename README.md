@@ -1,4 +1,6 @@
 # TodoList
+![Screenshot from 2024-09-20 13-54-18](https://github.com/user-attachments/assets/354617a1-94a7-403b-beff-2ff043fb334c)
+![Screenshot from 2024-09-20 13-54-23](https://github.com/user-attachments/assets/1c4bbc3d-4c53-4f7e-86a3-228705233a89)
 
 This template should help get you started developing with Vue 3 in Vite.
 
